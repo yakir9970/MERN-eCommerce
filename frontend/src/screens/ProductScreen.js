@@ -10,7 +10,11 @@ const ProductScreen = (props) => {
   const product = products.find((p) => p._id === params.pid);
   return (
     <React.Fragment>
-      <Link className="btn btn-light my-3" to="/">
+      <Link
+        className="btn btn-light my-3"
+        style={{ fontSize: 20, fontWeight: "bold", color: "#2C3E50" }}
+        to="/"
+      >
         Go Back
       </Link>
       <Row>
