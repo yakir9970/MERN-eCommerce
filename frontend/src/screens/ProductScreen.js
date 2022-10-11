@@ -1,13 +1,23 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Row, Col, Image, ListGroup, Card, Button } from "react-bootstrap";
 import Rating from "../components/Rating";
-import products from "../products";
 import "./ProductScreen.css";
+import axios from "axios";
 
 const ProductScreen = (props) => {
   const params = useParams();
-  const product = products.find((p) => p._id === params.pid);
+
+  const [product, setProduct] = useState({});
+
+  useEffect(() => {
+    const fetchProduct = async () => {
+      const { data } = await axios.get(`/api/products/${params.pid}`);
+      setProduct(data);
+    };
+    fetchProduct();
+  }, [params]);
+
   return (
     <React.Fragment>
       <Link
@@ -42,7 +52,7 @@ const ProductScreen = (props) => {
             <ListGroup variant="flush">
               <ListGroup.Item>
                 <Row>
-                  <Col>Price:</Col>
+                  <Col style={{ fontWeight: "bold" }}>Price:</Col>
                   <Col>
                     <strong>${product.price}</strong>
                   </Col>
@@ -50,9 +60,10 @@ const ProductScreen = (props) => {
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
-                  <Col>Status:</Col>
+                  <Col style={{ fontWeight: "bold" }}>Status:</Col>
                   <Col
                     style={{
+                      fontWeight: "bold",
                       color: `${product.countInStock > 0 ? "green" : "red"}`,
                     }}
                     className="col-stock"
