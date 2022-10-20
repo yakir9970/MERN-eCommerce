@@ -14,6 +14,7 @@ import PaymentScreen from "./screens/PaymentScreen";
 import PlaceOrderScreen from "./screens/PlaceOrderScreen";
 import OrderScreen from "./screens/OrderScreen";
 import UserListScreen from "./screens/UserListScreen";
+import NotFoundScreen from "./screens/NotFoundScreen";
 
 const App = () => {
   return (
@@ -36,6 +37,8 @@ const App = () => {
               <Route path=":pid" element={<CartScreen />} />
               <Route path="" element={<CartScreen />} />
             </Route>
+
+            <Route path="*" element={<NotFoundScreen />} />
           </Routes>
         </Container>
       </main>
