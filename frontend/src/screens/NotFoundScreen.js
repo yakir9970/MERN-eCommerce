@@ -14,7 +14,7 @@ const NotFoundScreen = () => {
 
               <div className="contant_box_404">
                 <h3 className="h2">Looks Like You're Lost...</h3>
-                <p>The page you're looking dor is not available!</p>
+                <p>The page you're looking for is not available!</p>
                 <a href="/" className="link_404">
                   Go To Home
                 </a>
