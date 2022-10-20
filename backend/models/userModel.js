@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
+import Order from "./orderModel.js";
 
 const userSchema = mongoose.Schema(
   {
@@ -38,6 +39,11 @@ userSchema.pre("save", async function (next) {
 
   const salt = await bcrypt.genSalt(10);
   this.password = await bcrypt.hash(this.password, salt);
+});
+
+userSchema.pre("remove", function (next) {
+  Order.deleteMany({ user: this._id }).exec();
+  next();
 });
 
 const User = mongoose.model("User", userSchema);
