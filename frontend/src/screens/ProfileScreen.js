@@ -143,7 +143,7 @@ const ProfileScreen = () => {
                       order.paidAt.substring(0, 10)
                     ) : (
                       <i
-                        className="fa fa-times"
+                        className="fa-solid fa-x"
                         style={{ color: "red", fontSize: "30px" }}
                       ></i>
                     )}
@@ -153,7 +153,7 @@ const ProfileScreen = () => {
                       order.deliveredAt.substring(0, 10)
                     ) : (
                       <i
-                        className="fa fa-times"
+                        className="fa-solid fa-x"
                         style={{
                           color: "red",
                           fontSize: "30px",
