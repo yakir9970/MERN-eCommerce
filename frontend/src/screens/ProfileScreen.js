@@ -8,7 +8,6 @@ import Loader from "../components/Loader";
 import { getUserDetails, updateUserProfile } from "../actions/userActions";
 import { USER_UPDATE_PROFILE_RESET } from "../constants/userConstants";
 import { listMyOrders } from "../actions/orderActions";
-import "./ProfileScreen.css";
 
 const ProfileScreen = () => {
   const [name, setName] = useState("");
