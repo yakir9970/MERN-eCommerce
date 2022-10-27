@@ -27,7 +27,12 @@ const App = () => {
       <main className="py-3">
         <Container>
           <Routes>
-            <Route path="/search/:keyword" element={<HomeScreen />} />
+            <Route path="/search/:keyword" element={<HomeScreen />} exact />
+            <Route path="/page/:pageNumber" element={<HomeScreen />} />
+            <Route
+              path="/search/:keyword/page/:pageNumber"
+              element={<HomeScreen />}
+            />
             <Route path="/" element={<HomeScreen />} exact />
             <Route path="/order/:oid" element={<OrderScreen />} />
             <Route path="/shipping" element={<ShippingScreen />} />
@@ -36,7 +41,16 @@ const App = () => {
             <Route path="/login" element={<LoginScreen />} />
             <Route path="/register" element={<RegisterScreen />} />
             <Route path="/admin/userlist" element={<UserListScreen />} />
-            <Route path="/admin/productlist" element={<ProductListScreen />} />
+            <Route
+              path="/admin/productlist"
+              element={<ProductListScreen />}
+              exact
+            />
+            <Route
+              path="/admin/productlist/:pageNumber"
+              element={<ProductListScreen />}
+              exact
+            />
             <Route path="/admin/orderlist" element={<OrderListScreen />} />
             <Route path="/admin/user/:uid/edit" element={<UserEditScreen />} />
             <Route

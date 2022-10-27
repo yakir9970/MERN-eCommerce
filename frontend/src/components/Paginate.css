@@ -1,0 +1,12 @@
+.pageItem{
+    margin-top: 100px;
+    margin-left: 5px;
+    display: block;
+
+}
+
+.page{
+    bottom:300px;
+    left:50%;
+    justify-content: center;
+}

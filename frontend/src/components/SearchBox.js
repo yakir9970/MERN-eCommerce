@@ -11,6 +11,7 @@ const SearchBox = () => {
     e.preventDefault();
     if (keyword.trim()) {
       navigate(`/search/${keyword}`);
+      e.target.reset();
     } else {
       navigate("/");
     }
