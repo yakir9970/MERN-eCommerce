@@ -12,6 +12,7 @@ import {
   Form,
 } from "react-bootstrap";
 import Rating from "../components/Rating";
+import Meta from "../components/Meta";
 import {
   listProductDetails,
   createProductReview,
@@ -79,6 +80,8 @@ const ProductScreen = (props) => {
         <Message variant="danger">{error}</Message>
       ) : (
         <>
+          <Meta title={product.name} />
+
           <Row>
             <Col md={5}>
               <Image src={product.image} alt={product.name} fluid />

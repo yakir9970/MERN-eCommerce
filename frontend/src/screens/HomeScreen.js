@@ -1,12 +1,14 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { Row, Col } from "react-bootstrap";
 import Product from "../components/Product";
 import diamond from "../diamond.gif";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
 import Paginate from "../components/Paginate";
+import ProductCarousel from "../components/ProductCarousel";
+import Meta from "../components/Meta";
 import "./HomeScreen.css";
 import { listProducts } from "../actions/productActions";
 
@@ -26,10 +28,18 @@ const HomeScreen = () => {
 
   return (
     <>
+      <Meta title={"ProShop | Home"} />
       <div className="header">
         <img className="gif" src={diamond} alt="diamond" />
-        <h1>Latest Products</h1>
+        <h1>Top Products</h1>
       </div>
+      {!keyword ? (
+        <ProductCarousel />
+      ) : (
+        <Link to="/" className="btn btn-light">
+          Go Back
+        </Link>
+      )}
       {loading ? (
         <Loader />
       ) : error ? (

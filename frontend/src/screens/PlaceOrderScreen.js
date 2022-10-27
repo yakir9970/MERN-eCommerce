@@ -6,6 +6,7 @@ import { useNavigate } from "react-router";
 import Message from "../components/Message";
 import CheckoutSteps from "../components/CheckoutSteps";
 import { createOrder } from "../actions/orderActions";
+import Meta from "../components/Meta";
 
 const PlaceOrderScreen = () => {
   const cart = useSelector((state) => state.cart);
@@ -57,6 +58,7 @@ const PlaceOrderScreen = () => {
 
   return (
     <>
+      <Meta title={"ProShop | Place Order"} />
       <CheckoutSteps step1 step2 step3 step4 />
       <Row>
         <Col md={8}>
