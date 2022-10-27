@@ -1,4 +1,5 @@
 import React from "react";
+import { Route, Routes } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -7,6 +8,7 @@ import LinkContainer from "react-router-bootstrap/LinkContainer";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../actions/userActions";
 import { useNavigate } from "react-router";
+import SearchBox from "./SearchBox";
 
 import "./Header.css";
 
@@ -33,6 +35,10 @@ const Header = () => {
           </LinkContainer>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
+            <Routes>
+              <Route render={() => <SearchBox />} />
+            </Routes>
+            <SearchBox />
             <Nav className="ms-auto">
               {userInfo ? (
                 <NavDropdown title={userInfo.name} id="username">

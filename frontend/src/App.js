@@ -27,6 +27,7 @@ const App = () => {
       <main className="py-3">
         <Container>
           <Routes>
+            <Route path="/search/:keyword" element={<HomeScreen />} />
             <Route path="/" element={<HomeScreen />} exact />
             <Route path="/order/:oid" element={<OrderScreen />} />
             <Route path="/shipping" element={<ShippingScreen />} />
